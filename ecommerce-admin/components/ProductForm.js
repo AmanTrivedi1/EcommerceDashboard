@@ -81,7 +81,7 @@ export default function ProductForm({
   const propertiesToFill = [];
   if (categories.length > 0 && category) {
     let catInfo = categories.find(({ _id }) => _id === category);
-    propertiesToFill.push(...catInfo.properties);
+    propertiesToFill.push(...catInfo?.properties);
     while (catInfo?.parent?._id) {
       const parentCat = categories.find(
         ({ _id }) => _id === catInfo?.parent?._id
@@ -175,7 +175,7 @@ export default function ProductForm({
         value={description}
         onChange={(ev) => setDescription(ev.target.value)}
       />
-      <label>Price (in USD)</label>
+      <label>Price (in INR)</label>
       <input
         type="number"
         placeholder="price"
